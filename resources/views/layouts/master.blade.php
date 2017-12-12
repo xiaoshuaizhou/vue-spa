@@ -12,18 +12,7 @@
 </head>
 <body>
 <div id="app">
-    <div class="panel">
-        <div class="panel-heading"></div>
-        <div class="panel-body">
-            <ul style="margin-left: 700px;" class="nav nav-pills">
-                <router-link to="/" role="presentation" class="active">HoMe</router-link>
-                |
-                <router-link to="/about" role="presentation">AbOut</router-link>
-            </ul>
-        </div>
-    </div>
-
-    <router-view></router-view>
+    <app></app>
 </div>
 
 <script src="/js/app.js"></script>
