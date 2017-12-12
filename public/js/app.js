@@ -45391,6 +45391,10 @@ var routes = [{
 }, {
     path: '/about',
     component: __webpack_require__(44)
+}, {
+    path: '/post/:id',
+    name: 'posts',
+    component: __webpack_require__(57)
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
@@ -45424,7 +45428,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Home.vue"
+Component.options.__file = "resources/assets/js/components/Home.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
@@ -45434,9 +45438,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-85ef4954", Component.options)
+    hotAPI.createRecord("data-v-6707e3d4", Component.options)
   } else {
-    hotAPI.reload("data-v-85ef4954", Component.options)
+    hotAPI.reload("data-v-6707e3d4", Component.options)
 ' + '  }
   module.hot.dispose(function (data) {
     disposed = true
@@ -45452,6 +45456,8 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -45495,26 +45501,39 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
-        _c(
-          "div",
-          { staticClass: "panel panel-default" },
-          [
-            _c("div", { staticClass: "panel-heading" }, [_vm._v("文章列表")]),
-            _vm._v(" "),
+        _c("div", { staticClass: "panel panel-default" }, [
+          _c("div", { staticClass: "panel-heading" }, [_vm._v("文章列表")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "panel-body" },
             _vm._l(_vm.posts, function(post) {
               return _c(
                 "div",
                 { key: post.id, staticClass: "bs-callout bs-callout-danger" },
                 [
-                  _c("h4", [_vm._v(_vm._s(post.title))]),
+                  _c(
+                    "h4",
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          attrs: {
+                            to: { name: "posts", params: { id: post.id } }
+                          }
+                        },
+                        [_vm._v(_vm._s(post.title))]
+                      )
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
                   _c("p", [_vm._v(_vm._s(post.body))])
                 ]
               )
             })
-          ],
-          2
-        )
+          )
+        ])
       ])
     ])
   ])
@@ -45525,7 +45544,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-85ef4954", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-6707e3d4", module.exports)
   }
 }
 
@@ -45555,7 +45574,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\About.vue"
+Component.options.__file = "resources/assets/js/components/About.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
@@ -45565,9 +45584,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-18887826", Component.options)
+    hotAPI.createRecord("data-v-10e9c534", Component.options)
   } else {
-    hotAPI.reload("data-v-18887826", Component.options)
+    hotAPI.reload("data-v-10e9c534", Component.options)
 ' + '  }
   module.hot.dispose(function (data) {
     disposed = true
@@ -45645,7 +45664,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-18887826", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-10e9c534", module.exports)
   }
 }
 
@@ -45654,6 +45673,137 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(10)
+/* script */
+var __vue_script__ = __webpack_require__(58)
+/* template */
+var __vue_template__ = __webpack_require__(59)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Post.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1695e957", Component.options)
+  } else {
+    hotAPI.reload("data-v-1695e957", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        var _this = this;
+
+        axios.get('/api/posts/' + this.$route.params.id).then(function (responese) {
+            _this.post = responese.data; //后端分页
+        });
+    },
+
+    data: function data() {
+        return { post: {} };
+    }
+});
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
+        _c("div", { staticClass: "panel panel-default" }, [
+          _c("div", { staticClass: "panel-heading" }, [
+            _c("h4", [_vm._v(_vm._s(_vm.post.title))])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "bs-callout bs-callout-danger" }, [
+              _c("p", [_vm._v(_vm._s(_vm.post.body))])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1695e957", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
