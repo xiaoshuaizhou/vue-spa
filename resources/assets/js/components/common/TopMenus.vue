@@ -13,7 +13,7 @@
             </div>
             <div class="collapse navbar-collapse" id="target-menu">
                 <ul class="nav navbar-nav">
-                    <router-link class="navbar-brand" to="/about"><span  class="glyphicon glyphicon-user"></span>&nbsp;注册</router-link>
+                    <router-link class="navbar-brand" to="/register"><span  class="glyphicon glyphicon-user"></span>&nbsp;注册</router-link>
                     <router-link class="navbar-brand" to="/about"><span  class="glyphicon glyphicon-log-in"></span>&nbsp; 登录</router-link>
                 </ul>
             </div>

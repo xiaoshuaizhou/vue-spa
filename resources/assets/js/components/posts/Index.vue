@@ -23,7 +23,7 @@
             });
         },
         data: function () {
-            return {posts : []  }
+            return { posts : []  }
         }
     }
 </script>
