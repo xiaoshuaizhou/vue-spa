@@ -15,3 +15,16 @@
         }
     }
 </script>
+<style>
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .6s
+    }
+    .fade-enter, .fade-leave-to {
+        opacity: 0
+    }
+</style>
+<style>
+    .active .router-link-exact-active .router-link-active{
+        font-size: 25px;
+    }
+</style>
