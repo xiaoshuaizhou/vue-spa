@@ -36,6 +36,7 @@
 </template>
 
 <script>
+    import JWTToken from './../../helpers/jwt'
     export default {
         data(){
             return {
@@ -54,6 +55,7 @@
                     password : this.password
                 }
                 axios.post('/oauth/token', formData).then(response => {
+                    JWTToken.setToker(response.data.access_token);
                     console.log(response.data)
                 })
             }
