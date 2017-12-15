@@ -46784,9 +46784,7 @@ var render = function() {
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-6 col-md-offset-3" }, [
         _c("div", { staticClass: "panel panel-default" }, [
-          _c("div", { staticClass: "panel-heading glyphicon glyphicon-user" }, [
-            _vm._v(" 注册")
-          ]),
+          _c("div", { staticClass: "panel-heading" }, [_vm._v(" 注 册")]),
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [_c("register-form")], 1)
         ])
