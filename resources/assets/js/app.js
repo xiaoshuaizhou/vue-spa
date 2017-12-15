@@ -6,13 +6,19 @@ window.Vue = require('vue');
 import VueRouter from 'vue-router';
 import router from './routes';
 import App from './components/App';
-import VeeValidate from 'vee-validate';
-
+import zh_CN from './lang/zh_CN';
+import VeeValidate, { Validator } from 'vee-validate';
 
 Vue.use(VueRouter);
-Vue.use(VeeValidate);
+// 添加一个本地化文件
+Validator.addLocale(zh_CN);
 
-Vue.component('app', App)
+// 让Vue使用VeeValidate插件，并且使用本地化文件zh_CN
+Vue.use(VeeValidate, {
+    locale: 'zh_CN'
+});
+Vue.component('app', App);
+
 
 
 new Vue({
