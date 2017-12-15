@@ -1,16 +1,6 @@
 <template>
-    <form class="form-horizontal" method="POST" @submit.prevent="register" action="">
-        <div class="form-group " :class="{'has-error' : errors.has('name')}">
-            <label for="name" class="col-md-4 control-label">用户名：</label>
+    <form class="form-horizontal" method="POST" @submit.prevent="login" action="">
 
-            <div class="col-md-6">
-                <input id="name" type="text" v-model="name"
-                       data-vv-as="用户名" v-validate data-vv-rules="required|min:4"
-                       class="form-control" name="name" value="" required
-                       autofocus>
-                <span class="help-block" v-show="errors.has('name')">{{errors.first('name')}}</span>
-            </div>
-        </div>
 
         <div class="form-group" :class="{'has-error' : errors.has('email')}">
             <label for="email" class="col-md-4 control-label">邮箱：</label>
@@ -35,21 +25,10 @@
             </div>
         </div>
 
-        <div class="form-group" :class="{'has-error' : errors.has('password_confirmation')}">
-            <label for="password-confirm" class="col-md-4 control-label">确认密码：</label>
-
-            <div class="col-md-6">
-                <input id="password-confirm" type="password"
-                       data-vv-as="确认密码" v-validate data-vv-rules="required|min:6|confirmed:password"
-                       class="form-control" name="password_confirmation" required>
-                <span class="help-block" v-show="errors.has('password_confirmation')">{{ errors.first('password_confirmation') }}</span>
-            </div>
-        </div>
-
         <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
                 <button type="submit" class="btn btn-primary btn-block">
-                    注册
+                    登录
                 </button>
             </div>
         </div>
@@ -60,20 +39,21 @@
     export default {
         data(){
             return {
-                name:'',
                 email:'',
                 password:''
             }
         },
         methods: {
-            register() {
+            login() {
                 let formData = {
-                        name: this.name,
-                        email:this.email,
-                        password: this.password
+                    client_id : 2,
+                    client_secret : '4P7ydQfVWOMznFJoYBKyBbGkgn05QuGI1QpUOsBP',
+                    scope : '',
+                    grant_type : 'password',
+                    username : this.email,
+                    password : this.password
                 }
-                axios.post('/api/register', formData).then(response => {
-                    this.$router.push({ name : 'confirm' })
+                axios.post('/oauth/token', formData).then(response => {
                     console.log(response.data)
                 })
             }
