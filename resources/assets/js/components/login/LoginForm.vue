@@ -47,15 +47,11 @@
         methods: {
             login() {
                 let formData = {
-                    client_id : 2,
-                    client_secret : '4P7ydQfVWOMznFJoYBKyBbGkgn05QuGI1QpUOsBP',
-                    scope : '',
-                    grant_type : 'password',
-                    username : this.email,
+                    email : this.email,
                     password : this.password
                 }
-                axios.post('/oauth/token', formData).then(response => {
-                    JWTToken.setToker(response.data.access_token);
+                axios.post('/api/login', formData).then(response => {
+                    JWTToken.setToker(response.data.token);
                     console.log(response.data)
                 })
             }
