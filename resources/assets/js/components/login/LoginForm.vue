@@ -53,6 +53,8 @@
                 axios.post('/api/login', formData).then(response => {
                     JWTToken.setToker(response.data.token);
                     console.log(response.data)
+                }).catch(error=>{
+                    console.log(error.responese.data);
                 })
             }
         }

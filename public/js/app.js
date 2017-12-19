@@ -47485,6 +47485,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('/api/login', formData).then(function (response) {
                 __WEBPACK_IMPORTED_MODULE_0__helpers_jwt__["a" /* default */].setToker(response.data.token);
                 console.log(response.data);
+            }).catch(function (error) {
+                console.log(error.responese.data);
             });
         }
     }

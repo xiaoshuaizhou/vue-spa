@@ -2,6 +2,8 @@
 
 namespace App\Http\Proxy;
 
+use GuzzleHttp\Client;
+
 /**
  * Class TokenProxy
  * @package App\Http\Proxy
@@ -16,9 +18,32 @@ class TokenProxy {
      * TokenProxy constructor.
      * @param $http
      */
-    public function __construct(\GuzzleHttp\Client $http)
+    public function __construct(Client $http)
     {
         $this->http = $http;
+    }
+
+    /**
+     * 处理登录参数验证
+     * @param $email
+     * @param $password
+     * @return TokenProxy|\Illuminate\Http\JsonResponse
+     */
+    public function login($email, $password)
+    {
+        if ( \Auth::attempt([ 'email' => $email, 'password' => $password, 'is_active' => 1 ]) ) {
+            return $this->proxy('password', [
+                'username' => $email,
+                'password' => $password,
+                'scope'    => '',
+            ]);
+        }
+
+        return response()->json([
+            'status' => false,
+            'message' => 'validate failed',
+        ], 401);
+
     }
 
     /**
@@ -34,11 +59,12 @@ class TokenProxy {
             'client_secret' => env('PASSPORT_CLIENT_SECTET'),
             'grant_type'    => $grantType,
         ]);
-        $response = $this->http->post('http://vue-spa.zhou/api/oauth/token', [
-            'form_params' => $data
+
+        $response = $this->http->post('http://vue-spa.zhou/oauth/token', [
+            'form_params' => $data,
         ]);
 
-        $token = json_decode( (string)$response->getBody(), true );
+        $token = json_decode((string)$response->getBody(), true);
 
         return response()->json([
             'token'      => $token['access_token'],
