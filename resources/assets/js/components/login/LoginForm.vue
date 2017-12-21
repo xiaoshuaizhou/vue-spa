@@ -52,9 +52,14 @@
                 }
                 axios.post('/api/login', formData).then(response => {
                     JWTToken.setToker(response.data.token);
-                    console.log(response.data)
+                    this.$store.state.authenticated = true;
+                    console.log(123);
+                    console.log(this.$store.state.authenticated);
+
+                    this.$route.push({ name:'profile' })
                 }).catch(error=>{
-                    console.log(error.responese.data);
+                    console.log(3333)
+                    console.log(error.responese);
                 })
             }
         }

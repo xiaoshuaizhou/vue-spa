@@ -1,14 +1,14 @@
 export default {
 
     setToker(token) {
-        window.localStorage.setItem('jwt_token', token);
+        return window.localStorage.setItem('jwt_token', token);
     },
 
     getToken() {
-        window.localStorage.getItem('jwt_token');
+        return window.localStorage.getItem('jwt_token');
     },
     removeToken() {
-        window.localStorage.removeItem('jwt_token');
+        return window.localStorage.removeItem('jwt_token');
     }
 
 }
